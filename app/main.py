@@ -16,8 +16,8 @@ def sms_reply():
     # a message comes in webhook default page below
     # https://demo.twilio.com/welcome/sms/reply/
     
-    # Add a picture/gif message
-    msg.media("https://i.imgur.com/Gg6wa3S.gif")
+    # Add a picture
+    msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
 
 if __name__ == "__main__":
     app.run(debug=True)
