@@ -24,9 +24,9 @@ def incoming_sms():
     # Start our TwiML response
     resp = MessagingResponse()
     # Determine the right reply for this message
-    if body == 'Hello, Twillio':
+    if body == 'hello':
         resp.message("Hi!")
-    elif body == 'Goodbye, Twillio':
+    elif body == 'goodbye':
         resp.message("Goodbye :(")
     else:
         resp.message("Try saying something else....")
