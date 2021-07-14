@@ -9,12 +9,27 @@ def sms_reply():
     """Respond to incoming calls with a MMS message."""
     # Start our TwiML response
     resp = MessagingResponse()
-
     # Add a text message
     msg = resp.message("The Robots are coming! Head for the hills!")
-
     # Add a picture message
     msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
+
+    return str(resp)
+
+@app.route("/sms-custom", methods=['GET', 'POST'])
+def sms_reply():
+    """Send a dynamic reply to an incoming text message"""
+    # Get the message the user sent our Twilio number
+    body = request.values.get('Body', None)
+    # Start our TwiML response
+    resp = MessagingResponse()
+    # Determine the right reply for this message
+    if body == 'Hello, Twillio':
+        resp.message("Hi!")
+    elif body == 'Goodbye, Twillio':
+        resp.message("Goodbye :(")
+    else:
+        resp.message("Try saying something else....")
 
     return str(resp)
 
