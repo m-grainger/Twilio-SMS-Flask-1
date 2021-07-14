@@ -26,10 +26,8 @@ def incoming_sms():
     # Determine the right reply for this message
     if body == 'hello':
         resp.message("Hi!")
-    elif body == 'goodbye':
-        resp.message("Goodbye :(")
-    else:
-        resp.message("Try saying something else....")
+    elif body == 'bye':
+        resp.message("Goodbye")
 
     return str(resp)
 
