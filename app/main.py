@@ -17,7 +17,7 @@ def sms_reply():
     return str(resp)
 
 @app.route("/sms-custom", methods=['GET', 'POST'])
-def sms_reply():
+def incoming_sms():
     """Send a dynamic reply to an incoming text message"""
     # Get the message the user sent our Twilio number
     body = request.values.get('Body', None)
