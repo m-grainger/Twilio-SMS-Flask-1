@@ -15,7 +15,7 @@ def sms_reply():
     msg = resp.message("The Robots are coming! Head for the hills!")
     time.sleep(2)
     msg = resp.message("... it's too late- they got me!")
-    time.sleep(2)
+    time.sleep(10)
 
     # Add a picture message
     msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
