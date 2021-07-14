@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect
 from twilio.twiml.messaging_response import MessagingResponse
+import time
 
 app = Flask(__name__)
 
@@ -12,7 +13,9 @@ def sms_reply():
 
     # Add a text message
     msg = resp.message("The Robots are coming! Head for the hills!")
+    time.sleep(2)
     msg = resp.message("... it's too late- they got me!")
+    time.sleep(2)
 
     # Add a picture message
     msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
