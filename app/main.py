@@ -1,6 +1,8 @@
 from flask import Flask, request, redirect
 from twilio.twiml.messaging_response import MessagingResponse
+import logging
 
+logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
 
@@ -16,9 +18,12 @@ def sms_reply():
 
     return str(resp)
 
-@app.route("/status", methods=["GET", "POST"])
-def my_status_function():
-    print(f"Message SID {request.values.get('MessageSid')} has a status of {request.values.get('MessageStatus')}")
+@app.route("/MessageStatus", methods=['POST'])
+def incoming_sms():
+    message_sid = request.values.get('MessageSid', None)
+    message_status = request.values.get('MessageStatus', None)
+    logging.info('SID: {}, Status: {}'.format(message_sid, message_status))
+    return ('', 204)
     
 @app.route("/sms-custom", methods=['GET', 'POST'])
 def incoming_sms():
@@ -36,4 +41,6 @@ def incoming_sms():
     return str(resp)
 
 if __name__ == "__main__":
+    app.run(debug=True)
+
     app.run(debug=True)
