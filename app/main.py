@@ -16,6 +16,10 @@ def sms_reply():
 
     return str(resp)
 
+@app.route("/status", methods=["GET", "POST"])
+def my_status_function():
+    print(f"Message SID {request.values.get('MessageSid')} has a status of {request.values.get('MessageStatus')}")
+    
 @app.route("/sms-custom", methods=['GET', 'POST'])
 def incoming_sms():
     """Send a dynamic reply to an incoming text message"""
