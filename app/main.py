@@ -19,11 +19,8 @@ def sms_reply():
     return str(resp)
 
 @app.route("/MessageStatus", methods=['POST'])
-def incoming_sms():
-    message_sid = request.values.get('MessageSid', None)
-    message_status = request.values.get('MessageStatus', None)
-    logging.info('SID: {}, Status: {}'.format(message_sid, message_status))
-    return ('', 204)
+def my_status_function():
+    print(f"Message SID {request.values.get('MessageSid')} has a status of {request.values.get('MessageStatus')}")
 
 if __name__ == "__main__":
     app.run(debug=True)
