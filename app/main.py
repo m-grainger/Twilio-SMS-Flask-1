@@ -10,7 +10,7 @@ def sms_reply():
     # Start our TwiML response
     resp = MessagingResponse()
     # Add a text message
-    msg = resp.message("The Robots are coming! Head for the hills!")
+    msg = resp.message(f"The Robots are coming! Head for the hills!  your message SID is: {msg.sid}")
     # Add a picture message
     msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
 
